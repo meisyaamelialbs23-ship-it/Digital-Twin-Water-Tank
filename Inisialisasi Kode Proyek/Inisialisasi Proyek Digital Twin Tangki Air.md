@@ -9,14 +9,13 @@ digital-twin-tangki-air/
 ├── .gitignore
 └── README.md
 
-````markdown
-# 💧 Digital Twin Tangki Air
+markdown
+💧 Digital Twin Tangki Air
 
 Perancangan Digital Twin Tangki Air untuk Memantau Ketinggian dan Kondisi Air Secara Real-Time.
 Boilerplate Sprint 1 — Product Release 1 (Scrum, tim 3 orang).
 
 ## Struktur Folder
-```
 digital-twin-tangki-air/
 ├── backend/        # REST API (Flask) + init_db.py
 ├── frontend/       # Dashboard web (HTML/JS/CSS + Chart.js)
@@ -24,8 +23,6 @@ digital-twin-tangki-air/
 ├── database/       # schema.sql, seed.sql (SQLite: tangki.db dibuat otomatis)
 ├── docs/           # Charter, FP, backlog, wireframe, ERD
 └── README.md
-```
-
 ## Cara Menjalankan
 ```bash
 # 1) Backend
