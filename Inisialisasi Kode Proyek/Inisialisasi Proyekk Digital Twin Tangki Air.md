@@ -1,6 +1,5 @@
-# Boilerplate Code — Digital Twin Tangki Air
-Salin setiap file ke path yang tertulis di judulnya. Struktur akhir:
-```
+Inisialisasi Kode — Digital Twin Tangki Air
+
 digital-twin-tangki-air/
 ├── backend/ (app.py, init_db.py, requirements.txt)
 ├── frontend/ (index.html, style.css, app.js)
@@ -9,9 +8,6 @@ digital-twin-tangki-air/
 ├── docs/
 ├── .gitignore
 └── README.md
-```
-
-## `README.md`
 
 ````markdown
 # 💧 Digital Twin Tangki Air
