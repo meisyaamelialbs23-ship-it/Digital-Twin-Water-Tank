@@ -64,11 +64,11 @@ User default (development saja): `admin / admin123`, `operator / operator123`.
 - Pull Request ke `develop`, direview minimal 1 anggota tim
 
 ## Anggota Tim
-| Nama | NIM | Peran |
-|------|-----|-------|
-| ... | ... | Ketua Tim / Project Manager (Scrum Master) |
-| ... | ... | System Analyst & UX Designer |
-| ... | ... | Developer & Database Engineer |
+|              Nama                  |        NIM      |                Peran                       |
+|------------------------------------|-----------------|--------------------------------------------|
+| Dekna Mutiara Ramadhani            |     240504080   | Ketua Tim / Project Manager (Scrum Master) |
+| Nur Aimi Nadia Binti Hanafiah      |     240504077   |       System Analyst & UX Designer         |
+| Meisya Amelia Lubis                |     240504088   |        Developer & Database Engineer       |
 ````
 
 ## `.gitignore`
