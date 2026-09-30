@@ -1,0 +1,83 @@
+import streamlit as st
+
+# --- Palet Warna (contoh dipakai utk badge status) ---
+STATUS_COLOR = {
+    "Normal": "#28a745",
+    "Waspada": "#ffc107",
+    "Bahaya": "#dc3545"
+}
+
+# --- Sidebar Navigation ---
+def sidebar_nav():
+    user_type = st.sidebar.radio("Pilih tipe user:", ("Operator", "Admin"))
+    return user_type
+
+# --- Halaman Login ---
+def page_login():
+    st.title("DIGITAL TWIN TANGKI AIR")
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
+    login_button = st.button("LOGIN")
+    if login_button:
+        # Sederhanakan validasi
+        if username and password:
+            st.success("Login berhasil!")
+            st.session_state['logged_in'] = True
+            st.session_state['user_type'] = "Operator"  # contoh default
+        else:
+            st.error("Isi username dan password.")
+
+# --- Dashboard Operator ---
+def page_dashboard_operator():
+    st.header("Dashboard Real-Time - Operator")
+    st.write("Tangki: Tangki Utama")
+    st.write("Sensor: ● Terhubung   Update: 10:32:05")
+
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric("Ketinggian", "120 cm (75%)", "Normal", delta_color="normal")
+    col2.metric("Suhu", "27.5 °C", "Normal", delta_color="normal")
+    col3.metric("Kekeruhan", "3.2 NTU", "Normal", delta_color="normal")
+    col4.metric("TDS", "320 ppm", "Normal", delta_color="normal")
+
+    st.subheader("Visual Tangki (simbolik)")
+    st.progress(75)  # menggantikan visual animasi level air
+
+    st.subheader("Notifikasi Terbaru")
+    st.write("10:15 | Level air turun di bawah 80% | Info")
+    st.write("09:40 | TDS mendekati batas atas | Waspada")
+
+# --- Dashboard Admin ---
+def page_dashboard_admin():
+    st.header("Dashboard Admin")
+    st.metric("Tangki Aktif", 3)
+    st.metric("Sensor Online", "11/12")
+    st.metric("Alert Hari Ini", 4)
+    st.metric("Data Tercatat", "25.480")
+
+    st.write("Status Tangki Terkini")
+    st.table([
+        {"Tangki": "Tangki Utama", "Level": "75%", "Kualitas Air": "Baik", "Status": "Normal"},
+        {"Tangki": "Tangki B", "Level": "28%", "Kualitas Air": "Baik", "Status": "Waspada"},
+        {"Tangki": "Tangki C", "Level": "90%", "Kualitas Air": "Keruh", "Status": "Bahaya"}
+    ])
+
+# --- Main App ---
+
+def main():
+    st.set_page_config(page_title="Digital Twin Tangki Air", layout="wide")
+    
+    if 'logged_in' not in st.session_state:
+        st.session_state['logged_in'] = False
+    
+    if not st.session_state['logged_in']:
+        page_login()
+    else:
+        # Menu navigasi
+        user_type = st.session_state.get('user_type', 'Operator')
+        if user_type == "Operator":
+            page_dashboard_operator()
+        elif user_type == "Admin":
+            page_dashboard_admin()
+
+if __name__ == "__main__":
+    main()
